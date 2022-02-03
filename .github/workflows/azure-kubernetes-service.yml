@@ -38,6 +38,7 @@ env:
   ACR_RESOURCE_URI: azuretoolsacr.azurecr.io
   PROJECT_NAME: AzureAutomation
   AZURE_CONTAINER_REGISTRY: azuretoolsacr
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
   
 jobs:
   build:
