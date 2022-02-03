@@ -33,9 +33,11 @@
 on: [push]
 
 env:
-  AZURE_AKS_CLUSTER: toolsakscluster
-  AKS_RESOURCE_GROUP: azure-automation-rg
+  CLUSTER_NAME: toolsakscluster
+  RESOURCE_GROUP: azure-automation-rg
   ACR_RESOURCE_URI: azuretoolsacr.azurecr.io
+  PROJECT_NAME: AzureAutomation
+  AZURE_CONTAINER_REGISTRY: azuretoolsacr
   
 jobs:
   build:
@@ -70,8 +72,8 @@ jobs:
       uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
-        resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.RESOURCE_GROUP }}
     
     - name: Build image on ACR
       uses: azure/CLI@v1
