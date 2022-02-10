@@ -83,14 +83,7 @@ jobs:
         inlineScript: |
           az configure --defaults acr=${{ env.AZURE_CONTAINER_REGISTRY }}
           az acr build -t  -t ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.PROJECT_NAME }}:${{ github.sha }}
-    
-    - name: Gets K8s context
-      uses: azure/aks-set-context@v1
-      with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-          resource-group: ${{ env.RESOURCE_GROUP }}
-          cluster-name: ${{ env.CLUSTER_NAME }}
-      id: login
+
 
     - name: 🌐 Install ingress-nginx
       run: |
