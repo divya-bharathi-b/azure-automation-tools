@@ -69,6 +69,12 @@ jobs:
         username: ${{ secrets.ACR_USER }}  
         password: ${{ secrets.ACR_PASSWORD }}
         
+    - name: 📃 Set AKS context
+      uses: azure/aks-set-context@v1
+      with:
+        creds: '${{ secrets.AZURE_CREDENTIALS }}'
+        cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
+        resource-group: ${{ env.AKS_RESOURCE_GROUP }}
 
     
     - name: Build image on ACR
