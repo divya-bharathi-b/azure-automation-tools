@@ -5,6 +5,16 @@
 #    https://aka.ms/AA7q20u
 #
 name: microservices
+registry: myregistry.azurecr.io
+ingress:
+  - name: ingress
+    bindings:
+      - port: 8080
+    rules:
+      - path: /
+        service: frontend
+      - path: /backend
+        service: backend
 services:
 - name: frontend
   project: frontend/frontend.csproj
