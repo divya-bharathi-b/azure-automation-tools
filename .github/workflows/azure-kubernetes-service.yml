@@ -69,8 +69,8 @@ jobs:
       uses: azure/aks-set-context@v1
       with:
         creds: '${{ secrets.AZURE_CREDENTIALS }}'
-        cluster-name: ${{ env.AZURE_AKS_CLUSTER }}
-        resource-group: ${{ env.AKS_RESOURCE_GROUP }}
+        cluster-name: ${{ env.CLUSTER_NAME }}
+        resource-group: ${{ env.RESOURCE_GROUP }}
 
 
     - name: 🌐 Install ingress-nginx
